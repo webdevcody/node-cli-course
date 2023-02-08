@@ -31,8 +31,8 @@ These are the manual setup / deployment steps. I want to work on automating thes
         - yarn run build
     ```
 - domain
-  - add domain
-  - point CNAME of GCP to amplify endpoint
+  - setup domain on amplify
+  - create dns record to point to cloudfront
 
 # How to Run
 

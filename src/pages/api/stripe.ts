@@ -52,7 +52,7 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
             TableName: env.TABLE_NAME,
             Item: {
               pk: `email|${paymentIntentSucceeded.receipt_email}`,
-              sk: `id|${paymentIntentSucceeded.id}`,
+              sk: `email|${paymentIntentSucceeded.receipt_email}`,
               ...paymentIntentSucceeded,
             },
           })
