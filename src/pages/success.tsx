@@ -1,7 +1,5 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import { api } from "../utils/api";
-import { env } from "../env/client.mjs";
 
 const Success: NextPage = () => {
   return (
@@ -18,13 +16,12 @@ const Success: NextPage = () => {
           height="315"
           src="https://www.youtube.com/embed/qv6-IBfYFDg"
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       </main>
     </>
   );
 };
 
-export default Home;
+export default Success;
