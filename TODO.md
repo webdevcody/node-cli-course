@@ -1,2 +1,4 @@
 - IaC
 - Ci Cd
+- iam managed via terraform
+- next app deployed with either SST or amplify

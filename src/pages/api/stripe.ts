@@ -14,7 +14,13 @@ export const config = {
   },
 };
 
-const client = new DynamoDB.DocumentClient();
+const client = new DynamoDB.DocumentClient({
+  region: env.REGION,
+  credentials: {
+    accessKeyId: env.ACCESS_KEY_ID,
+    secretAccessKey: env.SECRET_ACCESS_KEY,
+  },
+});
 
 const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {

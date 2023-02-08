@@ -10,9 +10,9 @@ export const serverSchema = z.object({
   HOST_NAME: z.string(),
   PRICE_ID: z.string(),
   STRIPE_WEBHOOK_SECRET: z.string(),
-  AWS_REGION: z.string(),
-  AWS_SECRET_ACCESS_KEY: z.string(),
-  AWS_ACCESS_KEY_ID: z.string(),
+  REGION: z.string(),
+  SECRET_ACCESS_KEY: z.string(),
+  ACCESS_KEY_ID: z.string(),
   TABLE_NAME: z.string(),
 });
 
@@ -27,9 +27,9 @@ export const serverEnv = {
   HOST_NAME: process.env.HOST_NAME,
   PRICE_ID: process.env.PRICE_ID,
   STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
-  AWS_REGION: process.env.AWS_REGION,
-  AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
-  AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
+  REGION: process.env.REGION,
+  SECRET_ACCESS_KEY: process.env.SECRET_ACCESS_KEY,
+  ACCESS_KEY_ID: process.env.ACCESS_KEY_ID,
   TABLE_NAME: process.env.TABLE_NAME,
 };
 
