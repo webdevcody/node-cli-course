@@ -1,23 +1,15 @@
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 import { z } from "zod";
-import { DynamoDB } from "aws-sdk";
 import Stripe from "stripe";
 import { env } from "../../../env/server.mjs";
+import { client } from "../../../utils/dynamo";
 
 export const config = {
   api: {
     bodyParser: false,
   },
 };
-
-const client = new DynamoDB.DocumentClient({
-  region: env.REGION,
-  credentials: {
-    accessKeyId: env.ACCESS_KEY_ID,
-    secretAccessKey: env.SECRET_ACCESS_KEY,
-  },
-});
 
 export const stripe = new Stripe(env.STRIPE_SECRET_KEY, {
   apiVersion: "2022-11-15",

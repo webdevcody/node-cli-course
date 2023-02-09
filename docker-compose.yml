@@ -1,0 +1,86 @@
+version: "3.7"
+services:
+  _build:
+    image: digi-drop
+    command: ["echo", "build completed"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  shell:
+    image: digi-drop
+    container_name: shell
+    depends_on:
+      - _build
+    command: tail -f /dev/null
+    environment:
+      REGION: us-east-1
+      ACCESS_KEY: local
+      SECRET_KEY: local
+      DYNAMO_ENDPOINT: http://dynamodb-local:8000
+      HOST_NAME: http://localhost:3000
+      NEXT_PUBLIC_API_URL: http://localhost:3010
+    volumes:
+      - .:/home/app
+      - /home/app/node_modules
+
+  app:
+    image: digi-drop
+    depends_on:
+      - _build
+    container_name: app
+    ports:
+      - "3000:3000"
+    entrypoint: ["yarn", "dev"]
+    environment:
+      - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+      - NODE_ENV
+      - STRIPE_SECRET_KEY
+      - HOST_NAME
+      - PRICE_ID
+      - STRIPE_WEBHOOK_SECRET
+      - REGION
+      - SECRET_ACCESS_KEY
+      - ACCESS_KEY_ID
+      - TABLE_NAME
+      - DYNAMO_ENDPOINT
+
+    volumes:
+      - .:/home/app
+      - /home/app/node_modules
+
+  dynamodb-local:
+    image: amazon/dynamodb-local:latest
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+
+  dynamo-setup:
+    image: digi-drop
+    container_name: dynamo-setup
+    depends_on:
+      - _build
+      - dynamodb-local
+    environment:
+      - DYNAMO_ENDPOINT
+      - REGION
+      - ACCESS_KEY_ID
+      - SECRET_ACCESS_KEY
+      - TABLE_NAME
+    restart: "no"
+    entrypoint: ["yarn", "dynamo:setup"]
+    volumes:
+      - .:/home/app
+      - /home/app/node_modules
+
+  dynamodb-admin:
+    image: aaronshaf/dynamodb-admin
+    ports:
+      - "8001:8001"
+    environment:
+      DYNAMO_ENDPOINT: "http://dynamodb-local:8000"
+      AWS_REGION: "us-east-1"
+      AWS_ACCESS_KEY_ID: local
+      AWS_SECRET_ACCESS_KEY: local
+    depends_on:
+      - dynamodb-local

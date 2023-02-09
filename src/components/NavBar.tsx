@@ -47,25 +47,18 @@ export function NavBar() {
         </Link>
         <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
           <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:text-sm md:font-medium md:dark:bg-gray-900">
-            <li>
-              <Link
-                href="/"
-                className="block rounded bg-blue-700 py-2 pl-3 pr-4 text-white dark:bg-blue-600 md:bg-transparent md:p-0 md:text-blue-700 md:dark:bg-transparent md:dark:text-white"
-                aria-current="page"
-              >
-                Home
-              </Link>
-            </li>
-            <form onSubmit={login}>
+            <form onSubmit={login} className="flex gap-4">
               <input
                 value={email}
                 onChange={(e) => setEmail(e.currentTarget.value)}
                 type="email"
                 name="email"
               ></input>
-              <button className="text-white">Login</button>
+              <button className="rounded bg-blue-300 p-2 text-black">
+                Login
+              </button>
 
-              {error}
+              <span className="text-red-500">{error}</span>
             </form>
           </ul>
         </div>

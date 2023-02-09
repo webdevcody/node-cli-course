@@ -14,6 +14,7 @@ export const serverSchema = z.object({
   SECRET_ACCESS_KEY: z.string(),
   ACCESS_KEY_ID: z.string(),
   TABLE_NAME: z.string(),
+  DYNAMO_ENDPOINT: z.string().optional(),
 });
 
 /**
@@ -31,6 +32,7 @@ export const serverEnv = {
   SECRET_ACCESS_KEY: process.env.SECRET_ACCESS_KEY,
   ACCESS_KEY_ID: process.env.ACCESS_KEY_ID,
   TABLE_NAME: process.env.TABLE_NAME,
+  DYNAMO_ENDPOINT: process.env.DYNAMO_ENDPOINT,
 };
 
 /**

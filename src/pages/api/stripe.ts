@@ -1,9 +1,9 @@
 import type { NextApiResponse, NextApiRequest } from "next";
 import { buffer } from "micro";
 import { env } from "../../env/server.mjs";
-import { DynamoDB } from "aws-sdk";
-
 import Stripe from "stripe";
+import { client } from "../../utils/dynamo";
+
 export const stripe = new Stripe(env.STRIPE_SECRET_KEY, {
   apiVersion: "2022-11-15",
 });
@@ -13,14 +13,6 @@ export const config = {
     bodyParser: false,
   },
 };
-
-const client = new DynamoDB.DocumentClient({
-  region: env.REGION,
-  credentials: {
-    accessKeyId: env.ACCESS_KEY_ID,
-    secretAccessKey: env.SECRET_ACCESS_KEY,
-  },
-});
 
 const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
