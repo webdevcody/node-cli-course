@@ -19,8 +19,3 @@ RUN unzip terraform_1.3.7_linux_amd64.zip
 RUN mv terraform /usr/local/bin/
 
 WORKDIR /home/app
-
-FROM base AS deps
-
-COPY package.json .
-RUN yarn

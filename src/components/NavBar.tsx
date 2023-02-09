@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -33,29 +34,29 @@ export function NavBar() {
   }
 
   return (
-    <nav className="border-gray-200 bg-white px-2 dark:border-gray-700 dark:bg-gray-900">
+    <nav className="py-6">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link href="/" className="flex items-center">
           <img
             src="https://www.webdevcody.com/wdc.jpeg"
             className="mr-3 h-6 rounded-full sm:h-10"
-            alt="Flowbite Logo"
+            alt="Web Dev Cody logo"
           />
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
             Node CLI Mini Course
           </span>
         </Link>
         <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-          <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:text-sm md:font-medium md:dark:bg-gray-900">
+          <ul className="mt-4 flex flex-col rounded-lg border md:mt-0 md:flex-row md:space-x-8 md:border-0 md:text-sm md:font-medium">
             <form onSubmit={login} className="flex gap-4">
-              <input
+              {/* <input
                 value={email}
                 onChange={(e) => setEmail(e.currentTarget.value)}
                 type="email"
                 name="email"
-              ></input>
-              <button className="rounded bg-blue-300 p-2 text-black">
-                Login
+              ></input> */}
+              <button className="rounded bg-white py-2 px-4 text-black hover:bg-wdc-primary-darker hover:text-white">
+                Sign In
               </button>
 
               <span className="text-red-500">{error}</span>

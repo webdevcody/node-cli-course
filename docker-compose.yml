@@ -22,7 +22,6 @@ services:
       NEXT_PUBLIC_API_URL: http://localhost:3010
     volumes:
       - .:/home/app
-      - /home/app/node_modules
 
   app:
     image: digi-drop
@@ -47,7 +46,6 @@ services:
 
     volumes:
       - .:/home/app
-      - /home/app/node_modules
 
   dynamodb-local:
     image: amazon/dynamodb-local:latest
@@ -71,7 +69,6 @@ services:
     entrypoint: ["yarn", "dynamo:setup"]
     volumes:
       - .:/home/app
-      - /home/app/node_modules
 
   dynamodb-admin:
     image: aaronshaf/dynamodb-admin
