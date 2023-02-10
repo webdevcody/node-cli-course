@@ -58,7 +58,7 @@ const LoginPage: NextPage = () => {
             <form onSubmit={login}>
               <fieldset className="flex flex-col gap-4">
                 <input
-                  className="w-60 rounded p-2"
+                  className="w-80 rounded p-4 py-3"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.currentTarget.value)}
@@ -66,7 +66,7 @@ const LoginPage: NextPage = () => {
                   name="email"
                   placeholder="your-email@example.com"
                 ></input>
-                <button className="text-md w-60 rounded bg-gradient-to-r from-wdc-primary-darker to-blue-400 px-4 py-2 text-white hover:to-blue-500">
+                <button className="text-md w-80 rounded bg-gradient-to-r from-wdc-primary-darker to-blue-400 py-3 px-4 py-2 text-white hover:to-blue-500">
                   Sign In
                 </button>
               </fieldset>
