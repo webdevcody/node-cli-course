@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BsGithub } from "react-icons/bs";
 
 export function NavBar() {
   return (
@@ -15,7 +16,15 @@ export function NavBar() {
           </span>
         </Link>
         <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-          <ul className="mt-4 flex flex-col rounded-lg border md:mt-0 md:flex-row md:space-x-8 md:border-0 md:text-sm md:font-medium">
+          <ul className="mt-4 flex flex-col items-center rounded-lg border md:mt-0 md:flex-row md:space-x-8 md:border-0 md:text-sm md:font-medium">
+            <Link
+              className="text-2xl text-white"
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/webdevcody/digi-drop"
+            >
+              <BsGithub />
+            </Link>
             <Link href="/login">
               <button className="rounded bg-white py-2 px-4 text-black hover:bg-wdc-primary-darker hover:text-white">
                 Sign In

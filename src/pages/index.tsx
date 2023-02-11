@@ -15,6 +15,7 @@ import { Footer } from "../components/Footer";
 import { ReCaptchaProvider, useReCaptcha } from "next-recaptcha-v3";
 import { useSubscribe } from "../api/useSubscribe";
 import { useRouter } from "next/router";
+import { BsTerminal } from "react-icons/bs";
 
 const useStripe = () => {
   const stripe = useMemo<Promise<Stripe | null>>(
@@ -123,7 +124,7 @@ const Home: NextPage = () => {
           />
         </section>
         <section className="w-full pt-24 pb-4">
-          <div className="container  m-auto grid max-w-screen-lg grid-cols-4 text-center text-white">
+          <div className="container m-auto grid max-w-screen-lg grid-cols-5 text-center text-white">
             <div>
               <Image
                 src="/javascript.png"
@@ -143,7 +144,7 @@ const Home: NextPage = () => {
                 alt="node logo"
                 className="m-auto"
               />
-              Node STD Lib
+              Node 18.x STD Lib
             </div>
             <div>
               <Image
@@ -153,7 +154,7 @@ const Home: NextPage = () => {
                 alt="npm logo"
                 className="m-auto"
               />
-              Use NPM
+              Learn NPM
             </div>
             <div>
               <Image
@@ -163,7 +164,13 @@ const Home: NextPage = () => {
                 alt="vscode logo"
                 className="m-auto"
               />
-              All in VSCode
+              Using VSCode
+            </div>
+            <div className="flex flex-col items-center justify-center gap-2">
+              <div className="text-7xl text-red-500">
+                <BsTerminal />
+              </div>
+              Learn the Terminal
             </div>
           </div>
         </section>
@@ -180,8 +187,8 @@ const Home: NextPage = () => {
         </svg>
         <section className="w-full bg-wdc-primary-darker pb-16">
           <div className="container m-auto max-w-screen-lg">
-            <h2 className="mb-12 text-4xl font-bold">What We Will Build</h2>
-            <div className="grid grid-cols-2 gap-12">
+            <h2 className="mb-12 text-4xl font-bold">What You Will Build</h2>
+            <div className="grid grid-cols-3 gap-12">
               <div className="block max-w-sm rounded-lg border border-gray-200 bg-white p-6 text-center shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <DocumentChartBarIcon className="m-auto mb-2 h-12 w-12 text-white" />
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
@@ -216,6 +223,26 @@ const Home: NextPage = () => {
                 <PhotoIcon className="m-auto mb-2 h-12 w-12 text-white" />
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   Image Scaling Tool
+                </h5>
+                <p className="font-normal text-gray-700 dark:text-gray-400">
+                  Learn how to load in png files and scale them down to various
+                  sizes using a third party library called imagemagick.
+                </p>
+              </div>
+              <div className="block max-w-sm rounded-lg border border-gray-200 bg-white p-6 text-center shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <PhotoIcon className="m-auto mb-2 h-12 w-12 text-white" />
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  Web Crawler
+                </h5>
+                <p className="font-normal text-gray-700 dark:text-gray-400">
+                  Learn how to load in png files and scale them down to various
+                  sizes using a third party library called imagemagick.
+                </p>
+              </div>
+              <div className="block max-w-sm rounded-lg border border-gray-200 bg-white p-6 text-center shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <PhotoIcon className="m-auto mb-2 h-12 w-12 text-white" />
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  Wordle Game
                 </h5>
                 <p className="font-normal text-gray-700 dark:text-gray-400">
                   Learn how to load in png files and scale them down to various
